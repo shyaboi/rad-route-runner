@@ -5,6 +5,8 @@ import os
 # url = 'https://uselessapi.com/u-c-r/rick'
 url = 'https://uselessapi.com/u-c-r/toast'
 
+print("Py rrGetter running!")
+
 x = requests.get(url)
 
 ae = x.headers
@@ -17,7 +19,7 @@ cl= dk.replace("b'",'',1)
 fcl= cl.replace("'",'',1)
 
 f = open("demofile3.txt", "w")
-f.write("Woops! I have deleted the content!")
+f.write("wrote file!")
 f.close()
 
 #open and read the file after the appending:
