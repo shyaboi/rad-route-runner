@@ -16,6 +16,14 @@ dk= str(x.content)
 cl= dk.replace("b'",'',1)
 fcl= cl.replace("'",'',1)
 
+f = open("demofile3.txt", "w")
+f.write("Woops! I have deleted the content!")
+f.close()
+
+#open and read the file after the appending:
+f = open("demofile3.txt", "r")
+print(f.read())
+
 print(fcl)
 
 if ct=="text/html; charset=utf-8":
