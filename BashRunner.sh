@@ -1,5 +1,5 @@
 #!/bin/bash
 
-./rustyRunner.exe
+ruby rubyRunner.rb
 
 echo BashRunner Ran!
