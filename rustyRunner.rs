@@ -18,7 +18,7 @@ fn main() {
     }
 
     let output = Command::new("echo")
-    .arg("Rusty! Runner! Ran! ")
+    .arg("Rusty! Runner! Ran!")
     .output().unwrap_or_else(|e| {
         panic!("failed to execute process: {}", e)
 });
