@@ -58,6 +58,7 @@ if output.status.success() {
 let mut file = OpenOptions::new().append(true).open("testFile.txt").expect("cannot open file");
 
 file.write_all("\nText Written From rustyRunner!".as_bytes()).expect("write failed");
-println!("The company name has been added!");
+
+println!("Rust wrote test to file");
 
 }

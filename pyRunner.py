@@ -18,8 +18,8 @@ dk= str(x.content)
 cl= dk.replace("b'",'',1)
 fcl= cl.replace("'",'',1)
 
-f = open("demofile3.txt", "w")
-f.write("wrote file!")
+f = open("testFile.txt", "a")
+f.write("\nText Written From pyRunner!\n")
 f.close()
 
 #open and read the file after the appending:

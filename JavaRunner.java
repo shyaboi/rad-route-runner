@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -24,8 +25,21 @@ public class JavaRunner {
 
     }
 
+    public static void writer() {
+        try {
+            FileWriter writer = new FileWriter("testFile.txt", true);
+            writer.write("\r\n");   // write new line
+            writer.write("Text Written From JavaRunner!");
+            writer.write("\r\n");   // write new line
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         run("echo Java Runner Ran");
+        writer();
         run("node noder.js");
     }
 }
