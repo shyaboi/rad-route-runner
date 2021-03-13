@@ -1,6 +1,12 @@
 use std::process::Command;
+use std::fs::OpenOptions;
+use std::io::Write;
+
+
 
 fn main() {
+  
+
     let jcompile = Command::new("javac")
         .arg("JavaRunner.java")
         .output().unwrap_or_else(|e| {
@@ -48,4 +54,10 @@ if output.status.success() {
 
     print!("RustyRunner failed and stderr was:\n{}", s);
 }
+
+let mut file = OpenOptions::new().append(true).open("testFile.txt").expect("cannot open file");
+
+file.write_all("\nText Written From rustyRunner!".as_bytes()).expect("write failed");
+println!("The company name has been added!");
+
 }
