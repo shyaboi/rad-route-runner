@@ -6,22 +6,26 @@ use std::io::Write;
 
 fn main() {
   
+    let mut file = OpenOptions::new().append(true).open("testFile.txt").expect("cannot open file");
 
-    let jcompile = Command::new("javac")
-        .arg("JavaRunner.java")
-        .output().unwrap_or_else(|e| {
-            panic!("failed to execute process: {}", e)
-    });
+    file.write_all("\nText Written From rustyRunner!\n".as_bytes()).expect("write failed");
+    
+    println!("Rust wrote test to file");
+    // let jcompile = Command::new("javac")
+    //     .arg("JavaRunner.java")
+    //     .output().unwrap_or_else(|e| {
+    //         panic!("failed to execute process: {}", e)
+    // });
 
-    if jcompile.status.success() {
-        let s = String::from_utf8_lossy(&jcompile.stdout);
+    // if jcompile.status.success() {
+    //     let s = String::from_utf8_lossy(&jcompile.stdout);
 
-        print!("RustyRunner Ran, and stdout was:\n{}", s);
-    } else {
-        let s = String::from_utf8_lossy(&jcompile.stderr);
+    //     print!("RustyRunner Ran, and stdout was:\n{}", s);
+    // } else {
+    //     let s = String::from_utf8_lossy(&jcompile.stderr);
 
-        print!("RustyRunner failed and stderr was:\n{}", s);
-    }
+    //     print!("RustyRunner failed and stderr was:\n{}", s);
+    // }
     
     let jrun = Command::new("java")
         .arg("JavaRunner")
@@ -55,10 +59,6 @@ if output.status.success() {
     print!("RustyRunner failed and stderr was:\n{}", s);
 }
 
-let mut file = OpenOptions::new().append(true).open("testFile.txt").expect("cannot open file");
 
-file.write_all("\nText Written From rustyRunner!".as_bytes()).expect("write failed");
-
-println!("Rust wrote test to file");
 
 }

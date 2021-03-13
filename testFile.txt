@@ -2,41 +2,9 @@
 
 Text Written From BashRunner!
 
-
 Text Written From rubyRunner!
-
-Text Written From JavaRunner!
-
-Text Written From noder!
 
 Text Written From rustyRunner!
-
-Text Written From BashRunner!
-
-
-Text Written From rubyRunner!
-
-Text Written From JavaRunner!
-
-Text Written From noder!
-
-Text Written From rustyRunner!
-
-Text Written From BashRunner!
-
-
-Text Written From rubyRunner!
-
-Text Written From JavaRunner!
-
-Text Written From noder!
-Text Written From pyRunner!
-Text Written From rustyRunner!
-
-Text Written From BashRunner!
-
-
-Text Written From rubyRunner!
 
 Text Written From JavaRunner!
 
@@ -44,12 +12,12 @@ Text Written From noder!
 
 Text Written From pyRunner!
 
-Text Written From rustyRunner!
 
 Text Written From BashRunner!
 
-
 Text Written From rubyRunner!
+
+Text Written From rustyRunner!
 
 Text Written From JavaRunner!
 
@@ -57,11 +25,12 @@ Text Written From noder!
 
 Text Written From pyRunner!
 
-Text Written From rustyRunner!
 
 Text Written From BashRunner!
 
 Text Written From rubyRunner!
+
+Text Written From rustyRunner!
 
 Text Written From JavaRunner!
 
@@ -69,11 +38,12 @@ Text Written From noder!
 
 Text Written From pyRunner!
 
-Text Written From rustyRunner!
 
 Text Written From BashRunner!
 
 Text Written From rubyRunner!
+
+Text Written From rustyRunner!
 
 Text Written From JavaRunner!
 
@@ -81,4 +51,106 @@ Text Written From noder!
 
 Text Written From pyRunner!
 
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
 Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
+
+
+Text Written From BashRunner!
+
+Text Written From rubyRunner!
+
+Text Written From rustyRunner!
+
+Text Written From JavaRunner!
+
+Text Written From noder!
+
+Text Written From pyRunner!
