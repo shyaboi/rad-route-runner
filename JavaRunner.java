@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -26,7 +25,7 @@ public class JavaRunner {
     }
 
     public static void main(String[] args) {
-        run("node noder.js");
         run("echo Java Runner Ran");
+        run("node noder.js");
     }
 }
