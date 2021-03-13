@@ -8,6 +8,6 @@ File.write("testFile.txt", "\nText Written From rubyRunner!\n", mode: "a")
 
 puts "Test file written to! go rustyRunner!"
 
-system(compile)
+# system(compile)
 
 system(run)
