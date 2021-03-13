@@ -2,7 +2,9 @@
 
 echo BashRunner Ran!
 
-echo 'Text Written From BashRunner!' >> testFile.txt
+echo $'\n' >> testFile.txt
+
+echo $'Text Written From BashRunner!' >> testFile.txt
 
 echo "test file written, go rubyRunner!"
 
