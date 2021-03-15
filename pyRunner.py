@@ -1,12 +1,10 @@
 import os
 
+import requests
+
+response = requests.get("http://localhost:5000/file/.py")
 
 
-f = open("testFile.txt", "a")
-f.write("\nText Written From pyRunner!\n")
-f.close()
-
-f = open("testFile.txt", "r")
-print(f.read())
 
 
+print(rd)
