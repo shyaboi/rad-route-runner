@@ -1,9 +1,8 @@
 from flask import Flask
 from flask_restful import Resource, Api
 import os 
-from Routes.Home import Home
-# import requests
-
+from Routes import Home
+from Routes import File
 
 # url = 'https://uselessapi.com/u-c-r/test'
 # url = 'https://uselessapi.com/u-c-r/rick'
@@ -43,7 +42,9 @@ api = Api(app)
 
 
 
-api.add_resource(Home, '/')
+# api.add_resource(Home, '/')
+
+api.add_resource(File, '/file')
 
 if __name__ == '__main__':
     app.run(debug=True)
