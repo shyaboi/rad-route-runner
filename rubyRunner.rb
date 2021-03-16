@@ -1,13 +1,20 @@
-compile = 'rustc rustyRunner.rs'
+require 'net/http'
+require 'json'
 
-run = './rustyRunner.exe'
+uri = URI 'http://localhost:5000/files/rubs'
 
-puts "Ruby Runner Ran!"
+res = Net::HTTP.get_response uri
 
-File.write("testFile.txt", "\nText Written From rubyRunner!\n", mode: "a")
+content = Net::HTTP.get uri
 
-puts "Test file written to! go rustyRunner!"
+# puts res.message
+# puts res.code
 
-# system(compile)
+# puts content
 
-system(run)
+
+ok = JSON.parse(content)
+# ok.each_with_index {|val, index| puts "#{val} => #{index}" }
+state = ok[0]['pFile']
+
+eval state

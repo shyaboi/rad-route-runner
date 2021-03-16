@@ -3,8 +3,11 @@ const exec = util.promisify(require("child_process").exec);
 const fs = require ("fs")
 
 console.log(process.argv[10])
+
 let eObj = process.argv[10].slice(0, -1)
+
 eval(eObj)
+
 // let obj = process.argv[2]
 // console.log(obj)
 // const writeData = () => {
