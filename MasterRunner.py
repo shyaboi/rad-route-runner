@@ -29,6 +29,8 @@ if ext == 'js':
         os.system(f"node noder.js {data}")
 
 if ext == 'rb':
+        # x = data
+        # xSan = json.loads(json_util.dumps(x))
         os.system(f"ruby rubyRunner.rb {argz}")
         # result=subprocess.getoutput(f"ruby rubyRunner.rb {argz}")
         # print("result::: ",result)
