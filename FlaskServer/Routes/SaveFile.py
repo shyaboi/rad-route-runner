@@ -17,6 +17,8 @@ class SaveFile(Resource):
         fileExt = args.type
         route = args.route
 
+        print({'route':route, 'ext':fileExt, 'pFile':parsedFile, 'fileKey':route+f.filename})
+        
         mongo.db.radRoute.insert({'route':route, 'ext':fileExt, 'pFile':parsedFile, 'fileKey':route+f.filename})
         mongo.save_file(route+f.filename, f)
         # ff = f.save(f.filename)
