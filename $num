@@ -1,5 +1,12 @@
-rubbbbbbyyyyyyyyyyyyyyyy
-[$i = 0\n$num = 5\n\nuntil $i   do\n   puts("Inside the loop i = #$i" )\n   puts \rad
-ruby!'\n
-$i
-+=1;\nend\n]
+Inside the loop i = 0
+rad ruby!
+Inside the loop i = 1
+rad ruby!
+Inside the loop i = 2
+rad ruby!
+Inside the loop i = 3
+rad ruby!
+Inside the loop i = 4
+rad ruby!
+Inside the loop i = 5
+rad ruby!
