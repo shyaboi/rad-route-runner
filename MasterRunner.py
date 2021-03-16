@@ -5,6 +5,7 @@ import sys
 from flask_restful import Resource, Api, reqparse
 import json
 from bson import json_util
+import subprocess
 
 argz = sys.argv[1]
 
@@ -23,9 +24,13 @@ if ext == 'txt':
         print(data[0]['pFile'])
 #Eval to noder for JS runner
 if ext == 'js':
-        pd = data[0]['pFile']
         x = data
         xSan = json.loads(json_util.dumps(x))
         os.system(f"node noder.js {data}")
+
+if ext == 'rb':
+        os.system(f"ruby rubyRunner.rb {argz}")
+        # result=subprocess.getoutput(f"ruby rubyRunner.rb {argz}")
+        # print("result::: ",result)
 
 # ok = json.loads(data)
