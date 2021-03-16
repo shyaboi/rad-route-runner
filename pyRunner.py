@@ -1,10 +1,16 @@
 import os
+import json
 
 import requests
 
-response = requests.get("http://localhost:5000/file/.py")
+response = requests.get("http://localhost:5000/files/bro")
 
+data = response.json()
+evalStatement = data[0]['pFile']
+ext = data[0]['ext']
 
-
-
-print(rd)
+if ext == 'py':
+        print(data[0]['pFile'])
+        bro = compile(evalStatement, 'bra', 'exec')
+        exec(bro)
+# ok = json.loads(data)

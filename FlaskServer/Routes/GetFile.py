@@ -16,5 +16,5 @@ class GetFile(Resource):
         args = parser.parse_args()
         x = mongo.db.radRoute.find({'route':route})
         xSan = json.loads(json_util.dumps(x))
-
+        
         return xSan
