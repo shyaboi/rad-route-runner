@@ -2,7 +2,9 @@ from DBConn import mongo
 from flask_restful import Resource, Api, reqparse
 from DBConn import mongo
 import json
-from bson import json_util, ObjectId
+from bson import json_util
+
+
 
 class GetFile(Resource):
     def get(self,route):
