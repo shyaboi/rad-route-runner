@@ -16,17 +16,21 @@ def doThing(command, *args, **kwargs):
     if(args!=None):
         command = argList[1]
         if(command=='-v'):
-            print('too early for that; .000001 maybe')
+            print("=======================================================")
+            print('\n too early for that; .000001 maybe \n')
+            print("=======================================================")
             return 
         if(command=='-h'):
-            print(" -v  or -version    ||  to see the version number")
-            print(" -h  or -help       ||  to see this help text")
-            print(" -r  or -run or run ||  to run a route directly from Rad Routes")
+            print("=======================================================")
+            print("\n -v  or -version    ||  to see the version number")
+            print("\n -h  or -help       ||  to see this help text")
+            print("\n -r  or -run or run ||  to run a route directly from Rad Routes \n")
+            print("=======================================================")
             return
         if(command=='-r'):
             mod = argList[2]
-            print(mod)
-            os.system(f'py pyRunner.py')
+            # print(mod)
+            os.system(f'py MasterRunner.py {mod}')
             return
         else:
             print('\n'+str(command) + "\n \n Was not a proper command;\n \nCheck rr -h for help with commands")
