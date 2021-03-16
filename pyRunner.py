@@ -1,9 +1,10 @@
 import os
 import json
 import requests
+import sys
+argz = sys.argv[1]
 
-response = requests.get("http://localhost:5000/files/bro")
-
+response = requests.get(f"http://localhost:5000/files/{argz}")
 data = response.json()
 evalStatement = data[0]['pFile']
 ext = data[0]['ext']

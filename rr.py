@@ -26,6 +26,7 @@ def doThing(command, *args, **kwargs):
         if(command=='-r'):
             mod = argList[2]
             print(mod)
+            os.system(f'py pyRunner.py')
             return
         else:
             print('\n'+str(command) + "\n \n Was not a proper command;\n \nCheck rr -h for help with commands")
