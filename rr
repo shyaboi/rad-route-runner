@@ -1,26 +1,37 @@
 #!/usr/bin/env python
 
 import sys
+import os
 argList = []
 
 for arg in sys.argv:
     argList.append(arg)
 
 binLoc= argList[0]
-mod = argList[1]
-def comm(cmd='Default'):
-    if(argList[2]):
-        res = argList[2];
-        return res;
-    else:
-        print('noargs')
+command = argList[1]
+def comm():
+    if(len(argList)<2):
+        return
+    if(len(argList)>2):
+        print('arlist'+argList[2])
+        k=argList[2]
+        return k
+mod = comm()
+print(mod)
 
-if(mod=='-h' or '-help'):
+if(command=='-h' or '-help'):
     print(" -v  or -version    ||  to see the version number")
     print(" -h  or -help       ||  to see this help text")
     print(" -r  or -run or run ||  to run a route directly from Rad Routes")
     print("Working on more...")
-elif(mod=='--v'or'--version'):
+        return
+elif(command=='--v'or'--version'):
     print('too early for that; .000001 maybe')
-elif(mod=='--v'or'--'):
-    print('')
+        return
+elif(command=='-r'or'-run'or'run'):
+    if(mod!=None):
+        os.system('echo i did a thing'+mod)
+            return
+    else:
+        print('no args or something')
+            return

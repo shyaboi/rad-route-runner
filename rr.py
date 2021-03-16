@@ -10,8 +10,8 @@ binLoc= argList[0]
 mod = argList[1]
 def comm(cmd='Default'):
     if(argList[2]):
-        res = argList[2];
-        return res;
+        res = argList[2]
+        return res
     else:
         print('noargs')
 
