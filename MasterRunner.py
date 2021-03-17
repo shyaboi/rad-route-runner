@@ -13,7 +13,7 @@ response = requests.get(f"http://localhost:5000/files/{argz}")
 data = response.json()
 evalStatement = data[0]['pFile']
 ext = data[0]['ext']
-
+ 
 #run py program in masterRunner
 if ext == 'py':
         print(data[0]['pFile'])
@@ -29,10 +29,10 @@ if ext == 'js':
         os.system(f"node noder.js {data}")
 
 if ext == 'rb':
-        # x = data
-        # xSan = json.loads(json_util.dumps(x))
         os.system(f"ruby rubyRunner.rb {argz}")
-        # result=subprocess.getoutput(f"ruby rubyRunner.rb {argz}")
-        # print("result::: ",result)
 
-# ok = json.loads(data)
+if ext == 'java':
+        print(argz)
+        x = data[0]['pFile']
+        xSan = json_util.dumps(x)
+        os.system(f"java JavaRunner {xSan}")

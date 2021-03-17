@@ -5,41 +5,48 @@ import java.io.InputStreamReader;
 
 public class JavaRunner {
 
-    static public void run(String cmd) {
-        String command = cmd;
+    // static public void run(String cmd) {
+    //     String command = cmd;
 
-        try {
-            Process process = Runtime.getRuntime().exec(command);
+    //     try {
+    //         Process process = Runtime.getRuntime().exec(command);
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
+    //         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+    //         String line;
+    //         while ((line = reader.readLine()) != null) {
+    //             System.out.println(line);
+    //         }
 
-            reader.close();
+    //         reader.close();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
 
-    }
+    // }
 
-    public static void writer() {
-        try {
-            FileWriter writer = new FileWriter("testFile.txt", true);
-            writer.write("\r\n");   // write new line
-            writer.write("Text Written From JavaRunner!");
-            writer.write("\r\n");   // write new line
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    // public static void writer() {
+    //     try {
+    //         FileWriter writer = new FileWriter("testFile.txt", true);
+    //         writer.write("\r\n");   // write new line
+    //         writer.write("Text Written From JavaRunner!");
+    //         writer.write("\r\n");   // write new line
+    //         writer.close();
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     public static void main(String[] args) {
-        run("echo Java Runner Ran");
-        writer();
-        run("node noder.js");
+        //     for (String s : args) {
+        // System.out.println(s);
+        // }
+        System.out.println(args[0].toString())
+        // for (int i = 0; i < args.length; i++) {
+        // System.out.println(args[i]);
+    // }
+        // run("echo Java Runner Ran");
+        // writer();
+        // run("node noder.js");
     }
 }
