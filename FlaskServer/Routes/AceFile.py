@@ -5,7 +5,7 @@ import shutil
 from DBConn import mongo
 from .Exists import *
 
-class SaveFile(Resource):
+class AceFile(Resource):
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('type')
