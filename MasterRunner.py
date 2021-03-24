@@ -17,6 +17,10 @@ class co:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 argz = sys.argv[1]
+login = False
+
+if(login == False):
+        input("prompt")
 
 
 try:
