@@ -6,6 +6,7 @@ from flask_restful import Resource, Api, reqparse
 import json
 from bson import json_util
 import subprocess
+import re
 class co:
     HEADER = '\033[95m'
     OKBL = '\033[94m'
@@ -19,8 +20,26 @@ class co:
 argz = sys.argv[1]
 login = False
 
+def run(string):
+  
+    # Make own character set and pass 
+    # this as argument in compile method
+    regex = re.compile('[@]')
+      
+    # Pass the string in search 
+    # method of regex object.    
+    if(regex.search(string) == None):
+        print("TODO check username col in DB for user")
+          
+    else:
+        print("TODO check email for user login")
+
+
 if(login == False):
-        input("prompt")
+        ok = input("Please input your email or username\n")
+        print(ok)
+        run(ok)
+
 
 
 try:
