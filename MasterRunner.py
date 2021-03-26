@@ -20,25 +20,20 @@ class co:
 argz = sys.argv[1]
 login = False
 
-def run(string):
+# def run(string):
   
-    # Make own character set and pass 
-    # this as argument in compile method
-    regex = re.compile('[@]')
-      
-    # Pass the string in search 
-    # method of regex object.    
-    if(regex.search(string) == None):
-        print("TODO check username col in DB for user")
+#     regex = re.compile('[@]')
+#     if(regex.search(string) == None):
+#         print("TODO check username col in DB for user")
           
-    else:
-        print("TODO check email for user login")
+#     else:
+#         print("TODO check email for user login")
 
 
-if(login == False):
-        ok = input("Please input your email or username\n")
-        print(ok)
-        run(ok)
+# if(login == False):
+#         ok = input("Please input your email or username\n")
+#         print(ok)
+#         run(ok)
 
 
 
