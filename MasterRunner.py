@@ -2,7 +2,6 @@ import os
 import json
 import requests
 import sys
-from flask_restful import Resource, Api, reqparse
 import json
 from bson import json_util
 import subprocess
@@ -38,7 +37,7 @@ login = False
 
 
 try:
-        response = requests.get(f"http://localhost:5000/files/{argz}")
+        response = requests.get(f"https://radroute.run/files/{argz}")
         data = response.json()
         ext = data[0]['ext']
         evalStatement = data[0]['pFile']

@@ -5,7 +5,7 @@ ar = ARGV[0]
 
 puts ar
 
-uri = URI "http://localhost:5000/files/#{ar}"
+uri = URI "https://radroute.run/files/#{ar}"
 
 content = Net::HTTP.get uri
 
