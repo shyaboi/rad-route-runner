@@ -16,7 +16,8 @@ class co:
     UNDERLINE = '\033[4m'
 
 def doThing(command, *args, **kwargs):
-
+    dirname = os.path.dirname(__file__)
+    
     argList = []
     for arg in command:
         argList.append(arg)
@@ -47,7 +48,7 @@ def doThing(command, *args, **kwargs):
                     print(f'{co.WARN}\n No Route Given, Please declare a route. to be ran after the -r \n \n see rr -h for help')
                     return
             # print(mod)
-                os.system(f'py MasterRunner.py {route}')
+                os.system(f'py {dirname}/runners/MasterRunner.py {route}')
                 return
         except:
             print(f'{co.FAIL} Improper route or run command, please see $:"rr -h" for help.')
