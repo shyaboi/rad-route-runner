@@ -47,12 +47,13 @@ except:
 try:
 #run py program in masterRunner
         if ext == 'py':
-                print(data[0]['pFile'])
+                # print(data[0]['pFile'])
                 bro = compile(evalStatement, 'evalCompile', 'exec')
                 exec(bro)
         #print txt to console
         if ext == 'txt':
-                print(data[0]['pFile'])
+                # print(data[0]['pFile'])
+                print('benis')
         #Eval to noder for JS runner
         if ext == 'js':
                 x = data

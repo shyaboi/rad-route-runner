@@ -1,6 +1,6 @@
 # Rad Routes Runner
 
-![Rad Routes Logo](https://i.ibb.co/y0gF3LF/logo512.png)
+[![Rad Routes Logo](https://i.ibb.co/y0gF3LF/logo512.png)](https://radroutes.com/)
 
 # Rad Routes is an evolution of [UseLess API](https://uselessapi.com)
 Rad Routes, and the Rad Routes Runner client is ment to make code sharing and remote code execution as easy as it can be.
@@ -8,4 +8,4 @@ Rad Routes, and the Rad Routes Runner client is ment to make code sharing and re
 # Rad Routes CLI Installer
 Rad Routes has a CLI tool where you can execute all rad routes commands via simple CLI commands
 
-First install the Rad Routes Runner CLI  ==> [Here](https://radroute.run/installer)
+First install the Rad Routes Runner CLI  ==> [Here](https://radroutes.com/)
