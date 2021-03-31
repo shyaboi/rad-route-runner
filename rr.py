@@ -71,6 +71,8 @@ def doThing(command, *args, **kwargs):
 try:
     checkOS()
     doThing(argz)
+except KeyboardInterrupt:
+    print(f'Shutting down {argz} and R.A.D. Runner byeeeeeeeeeeeeeeeeeeeee.')
 except:
 #   print( str(argz[2]) + " Was not a proper Rad Route command;\n \nCheck rr -h for help with commands")
   print(f"{co.FAIL}  Was not a proper Rad Route command;\n \nCheck rr -h for help with commands")
