@@ -1,26 +1,47 @@
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
-const fs = require ("fs")
+var https = require('https');
+var http = require('http');
 
-// console.log(process.argv[14])
+// console.log(process.argv[2])
 
-let eObj = process.argv[14].slice(0, -2)
 
-const doThing = ()=> {eval(eObj)}
+https.get(`https://radroute.run/files/${process.argv[2]}`, (resp) => {
+  let data = '';
 
-// let obj = process.argv[2]
-// console.log(obj)
-// const writeData = () => {
-//   const cb = ()=> {console.log('noder file writter ran')}
-//   fs.appendFile('testFile.txt', '\nText Written From noder!\n', 'utf8', cb);
-// }
+  // A chunk of data has been received.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
 
-try {
-   doThing()
-} catch (error) {
-  console.error(error)
-  console.error('noder went wrong')
-}
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    let pFile = JSON.parse(data)
+    const finalFile = pFile[0].pFile
+    console.log(finalFile);
+    eval(finalFile)
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const noder = async (cmd) => {
 //   const { stdout, stderr } = await exec(cmd);
