@@ -58,7 +58,7 @@ try:
         if ext == 'js':
                 x = data
                 xSan = json.loads(json_util.dumps(x))
-                os.system(f"node {dirname}/noder.js {data}")
+                os.system(f"node {dirname}/noder.js {argz}")
 
         if ext == 'rb':
                 os.system(f"ruby {dirname}/rubyRunner.rb {argz}")
@@ -72,4 +72,4 @@ except KeyboardInterrupt:
         print(f"Shutting down {argz}, and R.A.D. Routes Runner.")
 except:
         print('something something it was the other langs fault...Python out (╯°□°)╯︵ ┻━┻')
-        raise
+        # raise
