@@ -2,6 +2,10 @@
 
 import sys
 import os
+import subprocess
+import json
+ 
+ 
 argz = sys.argv
 
 class co:
@@ -15,10 +19,30 @@ class co:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 operating_system = sys.platform
-def checkOS():
-    # os.system('pipenv shell')
-    print(operating_system)
-    
+
+req_installed=False
+pymong_installed=False
+
+def checkInstalled(r,p):
+    pip_installs = subprocess.check_output(["pipenv", "run", "pip", "list", "--format", "json"])
+    results = json.loads(pip_installs)
+
+    for x in results:
+        if(x['name']=='requests'):
+            r=True
+            print('req installed')
+            # pass
+        if(x['name']=='pymongo'):
+            p=True
+            print('pymonog installed')
+            # pass
+    # print(operating_system)
+
+    if(r!=True):
+        os.system('pipenv install requests')
+    if(p!=True):
+        os.system('pipenv install pymongo')
+
 
 
 def doThing(command, *args, **kwargs):
@@ -55,10 +79,10 @@ def doThing(command, *args, **kwargs):
                     return
             # print(mod)
             if(operating_system=='win32'):
-                os.system(f'py {dirname}/runners/MasterRunner.py {route}')
+                os.system(f'pipenv run py {dirname}/runners/MasterRunner.py {route}')
                 return
             else:
-                os.system(f'python3 ~/.rad_routes/rad-route-runner-master/runners/MasterRunner.py {route}')
+                os.system(f'pipenv run python3 ~/.rad_routes/rad-route-runner-master/runners/MasterRunner.py {route}')
                 return
         except:
             print(f'{co.FAIL} Improper route or run command, please see $:"rr -h" for help.')
@@ -69,7 +93,7 @@ def doThing(command, *args, **kwargs):
         else:
             print(f"{co.WARN}\n \n Was not a known Rad Routes command;\n \n Run $: rr -h for help with commands")
 try:
-    checkOS()
+    checkInstalled(req_installed,pymong_installed)
     doThing(argz)
 except KeyboardInterrupt:
     print(f'Shutting down {argz} and R.A.D. Runner byeeeeeeeeeeeeeeeeeeeee.')
