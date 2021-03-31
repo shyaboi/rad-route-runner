@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import os
@@ -14,6 +14,12 @@ class co:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+operating_system = sys.platform
+def checkOS():
+    # os.system('pipenv shell')
+    print(operating_system)
+    
+
 
 def doThing(command, *args, **kwargs):
     dirname = os.path.dirname(__file__)
@@ -48,7 +54,11 @@ def doThing(command, *args, **kwargs):
                     print(f'{co.WARN}\n No Route Given, Please declare a route. to be ran after the -r \n \n see rr -h for help')
                     return
             # print(mod)
+            if(operating_system=='win32'):
                 os.system(f'py {dirname}/runners/MasterRunner.py {route}')
+                return
+            else:
+                os.system(f'python3 ~/.rad_routes/rad-route-runner-master/runners/MasterRunner.py {route}')
                 return
         except:
             print(f'{co.FAIL} Improper route or run command, please see $:"rr -h" for help.')
@@ -59,7 +69,11 @@ def doThing(command, *args, **kwargs):
         else:
             print(f"{co.WARN}\n \n Was not a known Rad Routes command;\n \n Run $: rr -h for help with commands")
 try:
+    checkOS()
     doThing(argz)
+except KeyboardInterrupt:
+    print(f'Shutting down {argz} and R.A.D. Runner byeeeeeeeeeeeeeeeeeeeee.')
+    sys.exit()
 except:
 #   print( str(argz[2]) + " Was not a proper Rad Route command;\n \nCheck rr -h for help with commands")
   print(f"{co.FAIL}  Was not a proper Rad Route command;\n \nCheck rr -h for help with commands")

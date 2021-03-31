@@ -16,17 +16,24 @@
     #     ;;
 # esac
 
+mkdir -p ~/.rad_routes
+
+cd ~/.rad_routes
+
+curl https://github.com/shyaboi/rad-route-runner/archive/refs/heads/master.zip -O -J -L
+
+unzip rad-route-runner-master.zip
+
+cd rad-route-runner-master
 
 chmod +x rr.py
 
 mv rr.py rr
 
-mkdir -p ~/bin
+cp -r ./runners/ ~/.rad_routes
 
-cp -r ./runners/ ~/bin
+cp rr ~/.rad_routes
 
-cp rr ~/bin
-
-export PATH=$PATH":$HOME/bin/"
+export PATH=$PATH":$HOME/.rad_routes/"
 
 exit 0

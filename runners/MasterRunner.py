@@ -68,6 +68,8 @@ try:
         #         x = data[0]['pFile']
         #         xSan = json_util.dumps(x)
         #         os.system(f"java JavaRunner {xSan}")
+except KeyboardInterrupt:
+        print(f"Shutting down {argz}, and R.A.D. Routes Runner.")
 except:
         print('something something it was the other langs fault...Python out (╯°□°)╯︵ ┻━┻')
         raise
