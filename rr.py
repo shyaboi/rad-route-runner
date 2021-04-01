@@ -61,9 +61,6 @@ def doThing(command, *args, **kwargs):
     argList = []
     for arg in command:
         argList.append(arg)
-    # print(argList)
-    # binLoc= argList[0]
-   
     if(args!=None):
         command = argList[1]
         if(command=='-v' or command=='-version' or command == '--v' or command=='--version'):
@@ -84,26 +81,46 @@ def doThing(command, *args, **kwargs):
             if(command=='-r'or command=='run' or command == '-run' or command == 'r'):
                 if (len(argList)>=3):
                     route = argList[2]
+                    if (len(argList)>=4):
+                        arg_mods = []
+                        al = len(argList)
+                        for x in range(3, al):
+                            i = argList[x]
+                            arg_mods.append(i)
+                        rest = arg_mods
+                        if('-v' in rest or 'env' in rest):
+                            print(f'{co.WARN}\n R.A.D. Routes virtual environment is experimental and may not function properly...YOLO!!!!!!')
+                            checkInstalled(req_installed,pymong_installed)
+                            if(operating_system=='win32'):
+                                os.system(f'pipenv run py {dirname}/runners/MasterRunner.py {route}')
+                                return
+                            else:
+                                os.system(f'pipenv run python3 ~/.rad_routes/rad-route-runner-master/runners/MasterRunner.py {route}')
+                            return
+
+                    else:
+                        pass
                 else:
                     print(f'{co.WARN}\n No Route Given, Please declare a route. to be ran after the -r \n \n see rr -h for help')
                     return
             # print(mod)
             if(operating_system=='win32'):
-                os.system(f'pipenv run py {dirname}/runners/MasterRunner.py {route}')
+                os.system(f'py {dirname}/runners/MasterRunner.py {route}')
                 return
             else:
-                os.system(f'pipenv run python3 ~/.rad_routes/rad-route-runner-master/runners/MasterRunner.py {route}')
+                os.system(f'python3 ~/.rad_routes/rad-route-runner-master/runners/MasterRunner.py {route}')
                 return
+            if(command=='-u'or command=='upload' or command == '-upload' or command == 'up' or command == '-up' or command == 'uplad'):
+                route = argList[2]
+                return 'Updates from CLI coming soon!'
+            if(command=='-u'or command=='upload' or command == '-upload' or command == 'up' or command == '-up' or command == 'uplad'):
+                route = argList[2]
+                return 'Updates from CLI coming soon!'
         except:
-            print(f'{co.FAIL} Improper route or run command, please see $:"rr -h" for help.')
-            raise
-        if(command=='-u'or command=='upload' or command == '-upload' or command == 'up' or command == '-up' or command == 'uplad'):
-            route = argList[2]
-            return
-        else:
             print(f"{co.WARN}\n \n Was not a known Rad Routes command;\n \n Run $: rr -h for help with commands")
+            raise
+        
 try:
-    checkInstalled(req_installed,pymong_installed)
     doThing(argz)
 except KeyboardInterrupt:
     print(f'Shutting down {argz} and R.A.D. Runner byeeeeeeeeeeeeeeeeeeeee.')
