@@ -24,7 +24,10 @@ req_installed=False
 pymong_installed=False
 
 def checkInstalled(r,p):
-    pip_installs = subprocess.check_output(["pipenv", "run", "pip", "list", "--format", "json"])
+    if(operating_system=='win32'):
+        pip_installs = subprocess.check_output(["py", "-m", "pipenv", "run", "pip", "list", "--format", "json"])
+    else:
+        pip_installs = subprocess.check_output(["python3", "-m", "pipenv", "run", "pip", "list", "--format", "json"])
     results = json.loads(pip_installs)
 
     for x in results:
@@ -37,11 +40,18 @@ def checkInstalled(r,p):
             print('pymonog installed')
             # pass
     # print(operating_system)
+    if(operating_system=='win32'):
+        if(r!=True):
+            os.system('py -m pipenv install requests')
+        if(p!=True):
+            os.system('py -m pipenv install pymongo')
+    if(operating_system=='win32'):
+        if(r!=True):
+            os.system('python3 -m pipenv install requests')
+        if(p!=True):
+            os.system('python3 -m pipenv install pymongo')
 
-    if(r!=True):
-        os.system('pipenv install requests')
-    if(p!=True):
-        os.system('pipenv install pymongo')
+
 
 
 
