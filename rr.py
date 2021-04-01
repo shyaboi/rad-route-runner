@@ -45,7 +45,7 @@ def checkInstalled(r,p):
             os.system('py -m pipenv install requests')
         if(p!=True):
             os.system('py -m pipenv install pymongo')
-    if(operating_system=='win32'):
+    else:
         if(r!=True):
             os.system('python3 -m pipenv install requests')
         if(p!=True):
