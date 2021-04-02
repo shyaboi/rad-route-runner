@@ -1,10 +1,13 @@
 import os
 import json
-import requests
 import sys
 import json
 import subprocess
 import re
+import urllib.request
+import urllib.parse
+
+
 
 class co:
     HEADER = '\033[95m'
@@ -40,9 +43,10 @@ dirname = os.path.dirname(__file__)
 
 
 try:
-        #TODO change requests to core urllib for no dep
-        response = requests.get(f"https://radroute.run/files/{argz}")
-        data = response.json()
+        url = f"https://radroute.run/files/{argz}"
+        req = urllib.request.urlopen(url)
+        encoding = req.read().decode('utf-8')
+        data = json.loads(encoding)
         ext = data[0]['ext']
         evalStatement = data[0]['pFile']
 except:
