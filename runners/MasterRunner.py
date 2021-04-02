@@ -3,9 +3,9 @@ import json
 import requests
 import sys
 import json
-from bson import json_util
 import subprocess
 import re
+
 class co:
     HEADER = '\033[95m'
     OKBL = '\033[94m'
@@ -16,6 +16,8 @@ class co:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    DEF = '\033[97m'
+
 argz = sys.argv[1]
 login = False
 dirname = os.path.dirname(__file__)
@@ -38,12 +40,14 @@ dirname = os.path.dirname(__file__)
 
 
 try:
+        #TODO change requests to core urllib for no dep
         response = requests.get(f"https://radroute.run/files/{argz}")
         data = response.json()
         ext = data[0]['ext']
         evalStatement = data[0]['pFile']
 except:
-        raise TypeError(f'{co.FAIL} Please check your API call')
+        print(f'{co.FAIL} Please check your API call {co.DEF}')
+        sys.exit(1)
 try:
 #run py program in masterRunner
         if ext == 'py':
@@ -52,12 +56,11 @@ try:
                 exec(bro)
         #print txt to console
         if ext == 'txt':
-                # print(data[0]['pFile'])
-                print('benis')
+                print(data[0]['pFile'])
+                
         #Eval to noder for JS runner
         if ext == 'js':
-                x = data
-                xSan = json.loads(json_util.dumps(x))
+                
                 os.system(f"node {dirname}/noder.js {argz}")
 
         if ext == 'rb':
@@ -69,7 +72,8 @@ try:
         #         xSan = json_util.dumps(x)
         #         os.system(f"java JavaRunner {xSan}")
 except KeyboardInterrupt:
-        print(f"Shutting down {argz}, and R.A.D. Routes Runner.")
+        print(f"{co.WARN}Shutting down {argz} {co.DEF}")
 except:
-        print('something something it was the other langs fault...Python out (╯°□°)╯︵ ┻━┻')
+        print(f'{co.FAIL} Something something it was the other langs fault...Python out (╯°□°)╯︵ ┻━┻ {co.DEF}')
+        sys.exit(1)
         # raise
