@@ -50,7 +50,7 @@ try:
         ext = data[0]['ext']
         evalStatement = data[0]['pFile']
 except:
-        print(f'{co.FAIL} Please check your API call {co.DEF}')
+        print(f'{co.FAIL} Please check your API call {co.DEF}')raise
         sys.exit(1)
 try:
 #run py program in masterRunner
