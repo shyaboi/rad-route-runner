@@ -18,38 +18,18 @@ class co:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    DEF = '\033[97m'
 operating_system = sys.platform
 
-req_installed=False
 pymong_installed=False
 
-def checkInstalled(r,p):
-    if(operating_system=='win32'):
-        pip_installs = subprocess.check_output(["py", "-m", "pipenv", "run", "pip", "list", "--format", "json"])
-    else:
-        pip_installs = subprocess.check_output(["python3", "-m", "pipenv", "run", "pip", "list", "--format", "json"])
-    results = json.loads(pip_installs)
-
-    for x in results:
-        if(x['name']=='requests'):
-            r=True
-            print('req installed')
-            # pass
-        if(x['name']=='pymongo'):
-            p=True
-            print('pymonog installed')
-            # pass
-    # print(operating_system)
-    if(operating_system=='win32'):
-        if(r!=True):
-            os.system('py -m pipenv install requests')
-        if(p!=True):
-            os.system('py -m pipenv install pymongo')
-    else:
-        if(r!=True):
-            os.system('python3 -m pipenv install requests')
-        if(p!=True):
-            os.system('python3 -m pipenv install pymongo')
+def checkENV():
+#TODO check for env environment, check for install...if no install, install, if no env on, but installed, start env...give user flag to choose different env and change env executeing command
+    try:
+        if(os.environ['VIRTUAL_ENV']):
+            print(os.environ['VIRTUAL_ENV'])
+    except KeyError:
+        print('no env')
 
 
 
@@ -89,8 +69,9 @@ def doThing(command, *args, **kwargs):
                             arg_mods.append(i)
                         rest = arg_mods
                         if('-v' in rest or 'env' in rest):
-                            print(f'{co.WARN}\n R.A.D. Routes virtual environment is experimental and may not function properly...YOLO!!!!!!')
-                            checkInstalled(req_installed,pymong_installed)
+                            print(f'{co.WARN}\n R.A.D. Routes virtual environment runner is experimental and may not function properly...YOLO!!!!!! {co.DEF}')
+                            checkENV()
+                            os.system(f" echo Running {route} in SPECIFIED virtual python environment")
                             if(operating_system=='win32'):
                                 os.system(f'pipenv run py {dirname}/runners/MasterRunner.py {route}')
                                 return
@@ -101,7 +82,7 @@ def doThing(command, *args, **kwargs):
                     else:
                         pass
                 else:
-                    print(f'{co.WARN}\n No Route Given, Please declare a route. to be ran after the -r \n \n see rr -h for help')
+                    print(f'{co.WARN}\n No Route Given, Please declare a route. to be ran after the -r \n \n see rr -h for help {co.DEF}')
                     return
             # print(mod)
             if(operating_system=='win32'):
@@ -116,16 +97,16 @@ def doThing(command, *args, **kwargs):
             if(command=='-u'or command=='upload' or command == '-upload' or command == 'up' or command == '-up' or command == 'uplad'):
                 route = argList[2]
                 return 'Updates from CLI coming soon!'
+        except KeyboardInterrupt:
+            print(f'{co.OKCY}Shutting down R.A.D. Runner byeeeeeeeeeeeeeeeeeeeee.{co.DEF}')
         except:
-            print(f"{co.WARN}\n \n Was not a known Rad Routes command;\n \n Run $: rr -h for help with commands")
-            raise
+            print(f"{co.WARN}\n \n Was not a known Rad Routes command;\n \n Run $: rr -h for help with commands {co.DEF}")
         
 try:
     doThing(argz)
 except KeyboardInterrupt:
-    print(f'Shutting down {argz} and R.A.D. Runner byeeeeeeeeeeeeeeeeeeeee.')
-    sys.exit()
+    sys.exit(1)  
 except:
-#   print( str(argz[2]) + " Was not a proper Rad Route command;\n \nCheck rr -h for help with commands")
-  print(f"{co.FAIL}  Was not a proper Rad Route command;\n \nCheck rr -h for help with commands")
-  raise
+  print(f"{co.FAIL} \nWas not a proper Rad Route command;\n \nCheck rr -h for help with commands {co.DEF}")
+  sys.exit(1)
+#   raise
