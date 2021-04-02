@@ -3,9 +3,9 @@ import json
 import requests
 import sys
 import json
-from bson import json_util
 import subprocess
 import re
+
 class co:
     HEADER = '\033[95m'
     OKBL = '\033[94m'
@@ -38,6 +38,7 @@ dirname = os.path.dirname(__file__)
 
 
 try:
+        #TODO change requests to core urllib for no dep
         response = requests.get(f"https://radroute.run/files/{argz}")
         data = response.json()
         ext = data[0]['ext']
@@ -57,7 +58,6 @@ try:
         #Eval to noder for JS runner
         if ext == 'js':
                 x = data
-                xSan = json.loads(json_util.dumps(x))
                 os.system(f"node {dirname}/noder.js {argz}")
 
         if ext == 'rb':
